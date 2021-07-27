@@ -141,9 +141,13 @@ class Apps extends AbstractApi
      *
      * @return array
      */
-    public function listRepositories($userId = null)
+    public function listRepositories($userId = null, $page = 1, $perPage = 30)
     {
-        $parameters = [];
+        $parameters = [
+            "page" => $page,
+            "per_page" => $perPage,
+        ];
+
         if ($userId) {
             $parameters['user_id'] = $userId;
         }
